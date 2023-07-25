@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Hero, ShowMore } from '@/components';
 import { SearchBar } from '@/components';
 import { CustomFilter } from '@/components';

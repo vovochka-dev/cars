@@ -18,9 +18,7 @@ export async function fetchCars(filters: FilterProps) {
   );
 
   // Parse the response as JSON
-  const result = await response.json();
-
-  return result;
+  return await response.json();
 }
 
 export const updateSearchParams = (type: string, value: string) => {
@@ -31,9 +29,7 @@ export const updateSearchParams = (type: string, value: string) => {
   searchParams.set(type, value);
 
   // Set the specified search parameter to the given value
-  const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
-
-  return newPathname;
+  return `${window.location.pathname}?${searchParams.toString()}`;
 };
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
