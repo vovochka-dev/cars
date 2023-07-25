@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Hero } from '@/components';
+import { Hero, ShowMore } from '@/components';
 import { SearchBar } from '@/components';
 import { CustomFilter } from '@/components';
 import { fetchCars } from '@/utils';
@@ -38,6 +38,11 @@ export default async function Home({ searchParams }: HomeProps) {
             <div className="home__cars-wrapper">
               {allCars?.map((car) => <CarCard car={car} />)}
             </div>
+
+            <ShowMore
+              pageNumber={(searchParams.limit || 10) / 10}
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
           </section>
         ) : (
           <div>
