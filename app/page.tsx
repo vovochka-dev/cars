@@ -26,7 +26,10 @@ export default async function Home({ searchParams }: HomeProps) {
           <p>Explore the cars you might like</p>
         </div>
         <div className="home__filters">
-          <SearchBar />
+          <SearchBar
+            manufacturer={searchParams.manufacturer}
+            model={searchParams.model}
+          />
           <div className="home__filter-container">
             <CustomFilter title="fuel" options={fuels} />
             <CustomFilter title="year" options={yearsOfProduction} />
