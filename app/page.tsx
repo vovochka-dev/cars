@@ -4,9 +4,16 @@ import { SearchBar } from '@/components';
 import { CustomFilter } from '@/components';
 import { fetchCars } from '@/utils';
 import CarCard from '@/components/CarCard';
+import { HomeProps } from '@/types';
 
-export default async function Home() {
-  const allCars = await fetchCars();
+export default async function Home({ searchParams }: HomeProps) {
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || '',
+    year: searchParams.year || 2022,
+    fuel: searchParams.fuel || '',
+    limit: searchParams.limit || 10,
+    model: searchParams.model || '',
+  });
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
